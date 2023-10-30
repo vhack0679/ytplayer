@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <style>
+        body {
+            background-color: rgb(255, 0, 0); 
+        }
+        .music-player {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 50px;
+            
+        }
+
+        .music-player img {
+            border-radius: 50%;
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        audio {
+            width: 900px;
+            margin-bottom: 20px;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: #ffffff;
+            border-radius: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="music-player">
+        <img src="https://feeds.abplive.com/onecms/images/uploaded-images/2023/08/08/933563e80151afab7b6b78aa8b711bac1691505641756313_original.jpg?impolicy=abp_cdn&imwidth=650" alt="Artist Photo">
+        <audio controls>
+            <source src="jailer-drill-theme-ringtone-tkkb.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
+<script>
+    function changeColor() {
+        const newColor = getRandomColor();
+        document.body.style.backgroundColor = newColor;
+
+        const rgb = newColor.match(/\d+/g);
+        const red = rgb[0];
+        const green = rgb[1];
+        const blue = rgb[2];
+        console.log(`The RGB values of the new body background color are: Red: ${red}, Green: ${green}, Blue: ${blue}`);
+    }
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Change color every 3 seconds
+    setInterval(changeColor, 500);
+</script>
+</body>
+</html>
